@@ -54,9 +54,9 @@ export default function DiseaseSlides({ data }: DiseaseSlideProps) {
   const sectionHeight = images.length * 150 + 100;
   return (
     <div className="pt-20 px-0 ">
-      <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <h1 className="uppercase absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         {data.title}
-      </h2>
+      </h1>
 
       <div
         className="container-element w-screen"
@@ -95,24 +95,17 @@ export default function DiseaseSlides({ data }: DiseaseSlideProps) {
                   style={{ y: translateSlideY }}
                 >
                   {Array.isArray(sections[index]?.content) ? (
-                    <ul className="list-disc pl-5">
+                    <ul className="list-disc pl-5 list-none">
                       {sections[index].content.map(
                         (item: string, i: number) => (
-                          <ul>
-                            <li
-                              className="text-4xl font-bold leading-normal"
-                              key={i}
-                            >
-                              <p>{item}</p>
-                            </li>
-                          </ul>
+                          <li className="slide-text leading-normal" key={i}>
+                            <p>{item}</p>
+                          </li>
                         ),
                       )}
                     </ul>
                   ) : (
-                    <p className="text-4xl font-bold">
-                      {sections[index]?.content}
-                    </p>
+                    <p className="slide-text">{sections[index]?.content}</p>
                   )}
                 </motion.div>
 
